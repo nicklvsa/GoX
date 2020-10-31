@@ -51,8 +51,6 @@ func (gox *GoxModule) syncWithBackend() (*GoxSyncCache, error) {
 		objectData["cache_id"] = gox.Cache.ID
 	}
 
-	fmt.Println(objectData)
-
 	data, err := json.Marshal(objectData)
 	if err != nil {
 		return nil, err
@@ -63,7 +61,7 @@ func (gox *GoxModule) syncWithBackend() (*GoxSyncCache, error) {
 		return nil, err
 	}
 
-	var formatted *GoxSyncCache
+	formatted := &GoxSyncCache{}
 	json.Unmarshal(resp, &formatted)
 
 	return formatted, nil
@@ -86,7 +84,7 @@ func (gox *GoxModule) deleteExpiredBackend(expires []string) (*GoxSyncCache, err
 		return nil, err
 	}
 
-	var formatted *GoxSyncCache
+	formatted := &GoxSyncCache{}
 	json.Unmarshal(resp, &formatted)
 
 	return formatted, nil
