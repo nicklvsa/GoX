@@ -27,5 +27,6 @@ func main() {
 	items, count := gox.PurgeExpiredItems() // remove all expired items
 	fmt.Println(fmt.Sprintf("Expired items: %+v | %d", items, count))
 
+	// just for testing
 	// select {} // testing - block forever
 }
